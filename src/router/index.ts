@@ -1,14 +1,25 @@
-import { createRouter, createMemoryHistory } from "vue-router";
+import {
+  createRouter,
+  createMemoryHistory,
+  type RouteRecordRaw,
+} from "vue-router";
 
-const defaultRouterList = [
-    {}
+const defaultRouterList: RouteRecordRaw[] = [
+  {
+    path: "/",
+    redirect: "/home",
+  },
+  {
+    path: '/home',
+    component: () => import('@/pages/home/index.vue')
+  }
 ];
 
 export const allRoutes = [...defaultRouterList];
 
 const router = createRouter({
-    history: createMemoryHistory('/jm'),
-    routes: allRoutes,
-})
+  history: createMemoryHistory(),
+  routes: allRoutes,
+});
 
 export default router;
