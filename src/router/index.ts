@@ -1,6 +1,7 @@
 import {
   createRouter,
-  createMemoryHistory,
+  // createMemoryHistory,
+  createWebHistory,
   type RouteRecordRaw,
 } from "vue-router";
 
@@ -18,7 +19,7 @@ const defaultRouterList: RouteRecordRaw[] = [
 export const allRoutes = [...defaultRouterList];
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(import.meta.env.VITE_BASE_URL || '/jm'),
   routes: allRoutes,
 });
 

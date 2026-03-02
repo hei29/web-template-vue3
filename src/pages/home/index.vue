@@ -1,17 +1,31 @@
 <template>
-    <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vuejs.org/" target="_blank">
-          <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-        </a>
-      </div>
-      <HelloWorld msg="Vite + Vue" />
+  <div>
+    <a href="https://vite.dev" target="_blank">
+      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="../../assets/vue.svg" class="logo vue" alt="Vue logo" />
+    </a>
+  </div>
+  <HelloWorld msg="Vite + Vue" />
+  <span>{{ count }}</span>
+  <button @click="addIncrement">+</button>
 </template>
 
 <script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
+import { SendTestLog } from "@/utils/event";
+import { useGlobalStore } from "@/store";
+import { storeToRefs } from 'pinia';
+
+const globalStore = useGlobalStore();
+const { count, dbCount, increment } = storeToRefs(globalStore);
+const addIncrement = () => {
+  globalStore.increment();
+  console.log(dbCount.value);
+};
+
+SendTestLog("test123");
 </script>
 
 <style scoped>
