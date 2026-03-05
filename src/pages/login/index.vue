@@ -109,13 +109,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #f5f5f5;
+  font-size: @font-size;
 }
 
 .login-card {

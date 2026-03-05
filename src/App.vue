@@ -11,4 +11,4 @@ emitter.on(EditorEvent.GlobalTestLog, ({ text }) => {
   console.log("测试输出：" + text);
 });
 </script>
-<style scoped></style>
+<style scoped lang=less></style>
