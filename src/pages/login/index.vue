@@ -41,6 +41,7 @@
 
 <script>
 import { ref } from "vue";
+import { login } from '@/api/permission';
 
 export default {
   name: "LoginPage",
@@ -86,9 +87,10 @@ export default {
       ],
     };
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
       const form = loginForm.value;
       console.log("登录表单数据：", form);
+      await login(form);
     };
 
     const handleRegister = () => {

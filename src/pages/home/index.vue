@@ -28,7 +28,7 @@ const addIncrement = () => {
 SendTestLog("test123");
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .logo {
   height: 6em;
   padding: 1.5em;
