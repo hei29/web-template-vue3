@@ -3,7 +3,7 @@
     <el-card class="login-card">
       <el-tabs v-model="activeTab" type="card">
         <el-tab-pane label="登录" name="login">
-          <el-form :model="loginForm" :rules="loginRules" ref="loginForm" label-width="80px">
+          <el-form v-model="loginForm" :rules="loginRules" ref="loginFormRefs" label-width="80px">
             <el-form-item label="账号" prop="username">
               <el-input v-model="loginForm.username" placeholder="请输入账号"></el-input>
             </el-form-item>
@@ -52,6 +52,7 @@ export default {
       username: "",
       password: "",
     });
+    const loginFormRefs = ref(null);
 
     const loginRules = {
       username: [{ required: true, message: "请输入账号", trigger: "blur" }],

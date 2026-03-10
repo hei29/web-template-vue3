@@ -2,11 +2,26 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 
+// import { viteMockServe } from 'vite-plugin-mock'
+
 // https://vite.dev/config/
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd());
   return {
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      // viteMockServe({
+      //   // 解析：设置mock文件存放的目录
+      //   mockPath: 'mock',
+      //   // 解析：仅在开发环境（serve）开启，生产环境自动关闭
+      //   // localEnabled: command === 'serve',
+      //   localEnabled: true,
+      //   // 解析：支持监控mock文件的变化，实时更新
+      //   watchFiles: true,
+      //   // 解析：支持读取ts文件（如果项目是TypeScript）
+      //   supportTs: true,
+      // }),
+    ],
     base: env.VITE_BASE_URL || "/",
     css: {
       preprocessorOptions: {

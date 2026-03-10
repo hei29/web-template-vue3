@@ -1,10 +1,12 @@
 import Mock from 'mockjs'
 
-Mock.mock('/\/api\/login/', 'post', (data: object) => {
+Mock.mock('/api/login', 'post', (data: object) => {
+    console.log('Mock login request data:', data);
     const { username, password } = data as any;
     if (username === 'admin' && password === 'admin') {
         return {
             code: 0,
+            message: 'Login successful',
             data: {
                 token: 'mock-token',
                 userInfo: {

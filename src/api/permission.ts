@@ -1,16 +1,21 @@
 import { request } from "@/utils/request/interceptors";
 
 // 用户登录
-export const login = (username: string, password: string) => {
-    return request.post("/api/login", { username, password });
+export const login = (data: object) => {
+    // return request.post("/api/login", { username, password });
+    return request.request({
+        method: "post",
+        url: "/api/login",
+        data,
+    });
 }
 
 // 注册用户
-export const register = (username: string, password: string) => {
+export const register = (data: object) => {
     return request.request({
         method: "post",
         url: "/api/register",
-        data: { username, password },
+        data,
     });
 }
 
